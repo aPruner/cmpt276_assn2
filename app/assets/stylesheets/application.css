@@ -14,6 +14,42 @@
  *= require_self
  */
 
+body {
+  background-color: #FFF3E2;
+}
+
+h1 {
+  margin-left: 15%;
+  padding: 5px;
+  font-family: Ubuntu;
+}
+
+table {
+  margin: auto;
+ 	border-collapse: collapse;
+ 	padding: 10px;
+  width: 70%;
+}
+
+td {
+  background-color: #9DF2B8;
+	border: 1px solid #CBC8CD;
+	border-collapse: collapse;
+	padding: 3px;
+}
+
+td.header {
+	background-color: #D5D5D5;
+	font-weight: 600;
+}
+
+ div.homebody {
+   background-color: #9DF2B8;
+   margin:auto;
+   height: 80%;
+   width: 90%;
+ }
+
  nav ul {
  	list-style-type: none;
  	margin: 0;
