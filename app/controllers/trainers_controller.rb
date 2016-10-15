@@ -56,6 +56,12 @@ class TrainersController < ApplicationController
   # DELETE /trainers/1.json
   def destroy
     @trainer.destroy
+    trainers_tokimons = Tokimon.where(:trainer_id => @trainer.id)
+
+    trainers_tokimons.each do |t|
+      t.destroy
+    end
+
     respond_to do |format|
       format.html { redirect_to trainers_url, notice: 'Trainer was successfully destroyed.' }
       format.json { head :no_content }
