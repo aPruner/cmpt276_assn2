@@ -14,6 +14,7 @@ class Tokimon < ApplicationRecord
 
   def self.set_total(toki)
     toki.total = toki.fly + toki.fight + toki.fire + toki.water + toki.electric + toki.ice
+    toki.save
   end
 
 end
