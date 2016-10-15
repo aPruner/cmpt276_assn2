@@ -20,6 +20,11 @@
       <tr>
         <td><%= trainer.name %></td>
         <td><%= trainer.level %></td>
+        <td>
+          <%= Tokimon.getAllAt(trainer).each do |t| %>
+          <% end %>
+
+        </td>
         <td><%= link_to 'Show', trainer %></td>
         <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
         <td><%= link_to 'Destroy', trainer, method: :delete, data: { confirm: 'Are you sure? You\'ll be deleting all tokimon associated with this trainer.' } %></td>

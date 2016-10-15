@@ -4,6 +4,7 @@ class TrainersController < ApplicationController
   # GET /trainers
   # GET /trainers.json
   def index
+    @trainers_tokimons = Tokimon.where(:trainer_id => @trainer_id)
     @trainers = Trainer.all
   end
 

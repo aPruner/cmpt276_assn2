@@ -17,4 +17,13 @@ class Tokimon < ApplicationRecord
     toki.save
   end
 
+  def getAllAt(train)
+    all_tokimons = Tokimon.where(:trainer_id => train.id)
+    arr = Array.new()
+    all_tokimons.each do |i|
+      arr.push(i.name)
+    end
+    return arr
+  end
+
 end
