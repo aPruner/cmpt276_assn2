@@ -8,9 +8,9 @@ class Trainer < ApplicationRecord
     train.level = 0
   end
 
-  def self.update_level(train)
-    num_tokimon = Tokimon.where(:trainer_id => :id)
-    train.level = num_tokimon.length / 3
-    train.save
+  def self.update_level(train_id)
+    trainer = Trainer.find(train_id)
+    trainer.level = Tokimon.where(:trainer_id => train_id).length / 3
+    trainer.save
   end
 end

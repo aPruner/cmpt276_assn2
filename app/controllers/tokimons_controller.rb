@@ -26,10 +26,10 @@ class TokimonsController < ApplicationController
   def create
     @tokimon = Tokimon.new(tokimon_params)
     Tokimon.set_total(@tokimon)
-    train = Trainer.find(tokimon_params[:trainer_id])
-    Trainer.update_level(train)
     respond_to do |format|
       if @tokimon.save
+        Trainer.update_level(@tokimon.trainer_id)
+
         format.html { redirect_to @tokimon, notice: 'Tokimon was successfully created.' }
         format.json { render :show, status: :created, location: @tokimon }
       else
@@ -42,12 +42,13 @@ class TokimonsController < ApplicationController
   # PATCH/PUT /tokimons/1
   # PATCH/PUT /tokimons/1.json
   def update
-    train = Trainer.find(tokimon_params[:trainer_id])
-    Trainer.update_level(train)
     respond_to do |format|
       Tokimon.set_total(@tokimon)
       if @tokimon.update(tokimon_params)
         Tokimon.set_total(@tokimon)
+
+        Trainer.update_level(@tokimon.trainer_id)
+
         format.html { redirect_to @tokimon, notice: 'Tokimon was successfully updated.' }
         format.json { render :show, status: :ok, location: @tokimon }
       else
