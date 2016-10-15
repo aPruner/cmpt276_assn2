@@ -10,6 +10,7 @@ class TokimonsController < ApplicationController
   # GET /tokimons/1
   # GET /tokimons/1.json
   def show
+    @trainer = Trainer.find(@tokimon.trainer_id)
   end
 
   # GET /tokimons/new

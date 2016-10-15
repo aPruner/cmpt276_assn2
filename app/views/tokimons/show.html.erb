@@ -52,7 +52,9 @@
 
 <p>
   Trainer:
-  <%= @tokimon.trainer_id %>
+  <%= @trainer.name %>
+  <%= link_to 'Show', @trainer %>
+  <%= link_to 'Edit', edit_trainer_path(@trainer) %>
 </p>
 
 <%= link_to 'Edit', edit_tokimon_path(@tokimon) %> |
