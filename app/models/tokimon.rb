@@ -10,10 +10,10 @@ class Tokimon < ApplicationRecord
   validates(:water, presence: true)
   validates(:electric, presence: true)
   validates(:ice, presence: true)
-  validates(:total, presence: true)
   validates(:trainer_id, presence: true)
 
   def self.set_total(toki)
     toki.total = toki.fly + toki.fight + toki.fire + toki.water + toki.electric + toki.ice
   end
+
 end

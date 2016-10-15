@@ -3,13 +3,13 @@ class Trainer < ApplicationRecord
 
   validates(:name, presence: true)
   validates(:level, presence: true)
-  validates(:num_tokimon, presence: true)
 
-  def self.set_level(train)
-    train.level = train.num_tokimon / 3
+  def self.set_level_default(train)
+    train.level = 0
   end
 
-  def self.add_tokimon(train)
-  	train.num_tokimon += 1
+  def self.update_level(train)
+    num_tokimon = Tokimon.where(:trainer_id => trainer.id)
+    train.level = num_tokimon.length / 3
   end
 end

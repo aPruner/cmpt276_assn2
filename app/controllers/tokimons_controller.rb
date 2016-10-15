@@ -25,6 +25,7 @@ class TokimonsController < ApplicationController
   # POST /tokimons.json
   def create
     @tokimon = Tokimon.new(tokimon_params)
+    Tokimon.set_total(@tokimon)
 
     respond_to do |format|
       if @tokimon.save
@@ -40,6 +41,7 @@ class TokimonsController < ApplicationController
   # PATCH/PUT /tokimons/1
   # PATCH/PUT /tokimons/1.json
   def update
+    Tokimon.set_total(@tokimon)
     respond_to do |format|
       if @tokimon.update(tokimon_params)
         format.html { redirect_to @tokimon, notice: 'Tokimon was successfully updated.' }
